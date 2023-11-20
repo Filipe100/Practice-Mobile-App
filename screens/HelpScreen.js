@@ -9,8 +9,20 @@ import Settings from '../constants/Settings';
 import { TextParagraph, TextH1, TextH2, TextH3, TextListItem } from "../components/StyledText";
 import Styles from "../styles/MainStyle";
 import Colours from '../constants/Colours';
+import { MyButton } from '../components/MyButton';
+
+
+
 
 export default function HelpScreen(props) {
+
+
+  const [fontSizeModifier, setFontSizeModifier]=React.useState(Settings.fontSizeModifier);
+
+  function changeFontSize(fontSizeModifier) {
+    Settings.fontSizeModifier += fontSizeModifier;
+    setFontSizeModifier(Settings.fontSizeModifier);
+  }
 
   return (
     <SafeAreaView style={Styles.safeAreaView}>
@@ -19,7 +31,27 @@ export default function HelpScreen(props) {
         <View>
           
           <TextH1 style={{marginTop:0}}>Help topics</TextH1>
+          <Text>ROI HR Managment System</Text>
 
+          <TextH3>Font size</TextH3>
+
+          <View style={Styles.helpButtonContainer}>
+            <MyButton
+            text="- smaller"
+            type="default"
+            size="Medium"
+            onPress={()=>{changeFontSize(-0.1)}}
+            buttonStyle={Styles.helpButton}
+            />
+            <MyButton
+            text="+ Bigger"
+            type="default"
+            size="Medium"
+            onPress={()=>{changeFontSize(+0.1)}}
+            buttonStyle={Styles.helpButton}
+            />
+          </View>
+          
           <TextH2>Sample content</TextH2>
 
           <TextParagraph>Here is some sample content for a help topic (or just any set of static text for the screen).</TextParagraph>

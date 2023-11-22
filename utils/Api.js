@@ -3,7 +3,7 @@ import cache from './Caching';
 
 // Root URL for the API backend
 // const apiUrl = "https://localhost:7215/api/v1";
-const apiUrl = 'http://localhost:5223/api';
+const apiUrl = 'http://localhost:5219/api';
 // 5219 5299 http://localhost
 // Use caching for semi-offline operation - set high TTL (time to live)
 cache.ttlMinutes = 60;

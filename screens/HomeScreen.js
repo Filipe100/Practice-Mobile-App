@@ -16,12 +16,14 @@ export default function HomeScreen(props) {
 
   const [isLogoColor, setIslogoColor] = React.useState(true);
 
-  function toggleLogo() {
-    setIslogoColor(!isLogoColor);
-    console.log('345345');
-  }
+
   function showHelp() {
     props.navigation.replace('Root', {screen: 'Help'});
+  }
+
+  function toggleLogo() {
+    setIslogoColor(!isLogoColor);
+    //console.log('345345');
   }
 
   function showViewPeople() {
@@ -33,8 +35,8 @@ export default function HomeScreen(props) {
       <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
         
       <View style={Styles.homeLogoContainer}>
-        <Pressable OnPress={toggleLogo}>
-          <Image source={imageIndex[ isLogoColor ? 'logo' : 'mono']} style={Styles.homeLogo}/>
+        <Pressable onPress={toggleLogo}>
+          <Image source={imageIndex[isLogoColor ? 'logo' : 'mono']} style={Styles.homeLogo}/>
         </Pressable>
       </View>
 
@@ -44,7 +46,7 @@ export default function HomeScreen(props) {
         </View>
         <View style={Styles.homeButtonContainer}>
           <MyButton
-            text="Show People"
+            text="View People"
             type="major"      // default*|major|minor
             size="large"      // small|medium*|large
             buttonStyle={Styles.homeButton}

@@ -1,7 +1,7 @@
 import { getRequest, deleteRequest, postRequest, putRequest, getRequestWithCaching } from './Api';
 
 // Root URL for the API backend
-const apiUrl = 'http://localhost:5020/api';
+const apiUrl = 'http://localhost:5223/api';
 const useCache = true;
 
 // Get all departments

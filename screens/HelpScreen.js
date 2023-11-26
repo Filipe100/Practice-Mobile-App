@@ -28,10 +28,11 @@ export default function HelpScreen(props) {
     <SafeAreaView style={Styles.safeAreaView}>
       <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
 
-        <View>
+        <View>         
+          <TextH1 style={{ marginTop: 0}}>Help topics</TextH1>
+
           
-          <TextH1 style={{marginTop:0}}>Help topics</TextH1>
-          <Text>ROI HR Managment System</Text>
+          
 
           <TextH3>Font size</TextH3>
 

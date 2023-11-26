@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView, Pressable } from 'react-native';
+import { View, ScrollView, Pressable, Text } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // Import helper code
@@ -32,7 +32,7 @@ export default function HelpScreen(props) {
           <TextH1 style={{ marginTop: 0}}>Help topics</TextH1>
 
           
-          
+          <Text>4323</Text>
 
           <TextH3>Font size</TextH3>
 

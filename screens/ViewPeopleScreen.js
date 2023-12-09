@@ -180,7 +180,7 @@ export default function ViewPeopleScreen(props) {
             text="Edit"
             type="default"
             size="small" 
-            buttonStyle={Styles.personItemListButton}
+            buttonStyle={Styles.personListItemButton}
             textStyle={Styles.personListItemButtomText}
             />
             <MyButton          

@@ -108,14 +108,80 @@ export default function AddPersonScreen(props) {
       });
   }
 
-  // Main output of the screen component
-  return (
-    <SafeAreaView style={Styles.safeAreaView}>
-      <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
-        <TextH1 style={{ marginTop: 0 }}>Add new person</TextH1>
 
+// Main output of the screen component
+return (
+  <SafeAreaView style={Styles.safeAreaView}>
+    <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
+      <TextH1 style={{ marginTop: 0 }}>Add new person</TextH1>
 
-      </ScrollView>
-    </SafeAreaView>
-  );
+      <View style={Styles.form}>
+        <View style={Styles.fieldSet}>
+          <TextParagraph style={Styles.legend}>Details</TextParagraph>
+
+            {/* Add Name, Phone here */}
+            <View style={Styles.formRow}>
+              <TextLabel>Name:</TextLabel>
+              {<TextInput value={name} onChangeText={setName} style={Styles.textInput} /> }
+            </View>
+
+            <View style={Styles.formRow}>
+              <TextLabel>Phone:</TextLabel>
+              {<TextInput value={phone} onChangeText={setPhone} style={Styles.textInput} /> }
+            </View>
+
+          <View style={Styles.formRow}>
+            <TextLabel>Department:</TextLabel>
+            {/* <TextInput value={departmentId} onChangeText={setDepartmentId} style={Styles.textInput} /> */}
+            <Picker selectedValue={departmentId} onValueChange={setDepartmentId} style={Styles.picker} itemStyle={Styles.pickerItem}>
+              {DisplayDepartmentListItems()}
+            </Picker>
+          </View>
+        </View>
+
+        <View style={Styles.fieldSet}>
+          <TextParagraph style={Styles.legend}>Address</TextParagraph>
+
+          <View style={Styles.formRow}>
+            <TextLabel>Street:</TextLabel>
+            <TextInput value={street} onChangeText={setStreet} style={Styles.textInput} />
+          </View>
+
+          <View style={Styles.formRow}>
+            <TextLabel>City:</TextLabel>
+            <TextInput value={city} onChangeText={setCity} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>State:</TextLabel>
+            <TextInput value={state} onChangeText={setState} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Zip:</TextLabel>
+            <TextInput value={zip} onChangeText={setZip} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Country:</TextLabel>
+            <TextInput value={country} onChangeText={setCountry} style={Styles.textInput} />
+          </View>
+          {/* Add City, State, Zip, Country here */}
+        </View>
+      </View>
+
+      <View style={[Styles.personButtonContainer, { borderBottomWidth: 0 }]}>
+        <MyButton
+          text="Add"
+          type="major" // default*|major|minor
+          size="medium" // small|medium*|large
+          onPress={AddPerson}
+        />
+        <MyButton
+          text="Cancel"
+          type="minor" // default*|major|minor
+          size="medium" // small|medium*|large
+          onPress={showViewPeople}
+        />
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
 }

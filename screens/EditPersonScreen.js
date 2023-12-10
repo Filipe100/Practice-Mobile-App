@@ -125,13 +125,54 @@ export default function EditPersonScreen(props) {
   }
 
   // Main output of the screen component
-  return (
-    <SafeAreaView style={Styles.safeAreaView}>
-      <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
-        <TextH1 style={{ marginTop: 0 }}>Edit: {nameOriginal}</TextH1>
+// Main output of the screen component
+return (
+  <SafeAreaView style={Styles.safeAreaView}>
+    <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
+      <TextH1 style={{ marginTop: 0 }}>Edit: {nameOriginal}</TextH1>
 
+      <View style={Styles.form}>
+        <View style={Styles.fieldSet}>
+          <TextParagraph style={Styles.legend}>Details</TextParagraph>
 
-      </ScrollView>
-    </SafeAreaView>
-  );
+          {/* Add Name, Phone here */}
+
+          <View style={Styles.formRow}>
+            <TextLabel>Department:</TextLabel>
+            {/* <TextInput value={departmentId} onChangeText={setDepartmentId} style={Styles.textInput} /> */}
+            <Picker selectedValue={departmentId} onValueChange={setDepartmentId} style={Styles.picker} itemStyle={Styles.pickerItem}>
+              {DisplayDepartmentListItems()}
+            </Picker>
+          </View>
+        </View>
+
+        <View style={Styles.fieldSet}>
+          <TextParagraph style={Styles.legend}>Address</TextParagraph>
+
+          <View style={Styles.formRow}>
+            <TextLabel>Street:</TextLabel>
+            <TextInput value={street} onChangeText={setStreet} style={Styles.textInput} />
+          </View>
+
+          {/* Add City, State, Zip, Country here */}
+        </View>
+      </View>
+
+      <View style={[Styles.personButtonContainer, { borderBottomWidth: 0 }]}>
+        <MyButton
+          text="Save"
+          type="major" // default*|major|minor
+          size="medium" // small|medium*|large
+          onPress={editPerson}
+        />
+        <MyButton
+          text="Cancel"
+          type="minor" // default*|major|minor
+          size="medium" // small|medium*|large
+          onPress={showViewPeople}
+        />
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
 }

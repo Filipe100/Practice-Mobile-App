@@ -162,7 +162,7 @@ export default StyleSheet.create({
   },
   headerBarTitle: {
     color: Colours.roiRed, // COLOUR: primary colour 1
-    textAlign: 'left',
+    textAlign: 'center',
   },
 
   // FOOTER NAVIGATION

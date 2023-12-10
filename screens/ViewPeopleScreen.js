@@ -203,24 +203,11 @@ export default function ViewPeopleScreen(props) {
   return (
     <SafeAreaView style={Styles.safeAreaView}>
       
-      <View style={Styles.personButtonContainer}>
-        <MyButton 
-          text="+ Add new person"
-          type="major"      // default*|major|minor
-          size="small"      // small|medium*|large
-          onPress={showAddPerson}
-        />
-        <MyButton 
-          text="Refresh"
-          type="default"    // default*|major|minor
-          size="small"      // small|medium*|large
-          onPress={refreshPersonList}
-        />
-      </View>
+ 
       
       <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
           
-        <TextH1 style={{marginTop:0}}>Listing all people</TextH1>
+     
 
         <View>
           {displayPeople()}

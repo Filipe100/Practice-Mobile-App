@@ -32,7 +32,7 @@ export default function HelpScreen(props) {
           <TextH1 style={{ marginTop: 0}}>Help topics</TextH1>
 
           
-          <Text>4323</Text>
+
 
           <TextH3>Font size</TextH3>
 

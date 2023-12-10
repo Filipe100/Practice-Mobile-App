@@ -14,20 +14,22 @@ const Stack = createNativeStackNavigator();
 
 export default function PeopleNavigator() {
     return (
-      <Stack.Navigator 
+        <Stack.Navigator 
         initialRouteName="ViewPeople"
         screenOptions={{
-          headerShown: true,
-          headerBackTitle: "Back",
-          headerStyle: Styles.headerBar,
-          headerTitleStyle: Styles.headerBarTitle,
+            headerShown: true,
+            headerBackTitle: "Back",
+            headerStyle: Styles.headerBar,
+            headerTitleStyle: Styles.headerBarTitle,
 
         }}>
+            
         <Stack.Screen
-          name="ViewPeople"
-          component={ViewPeopleScreen}
-          options={{ title: 'View All Staff' }}/>
-      </Stack.Navigator>
+            name="ViewPeople"
+            component={ViewPeopleScreen}
+            options={{ title: 'View All Staff' }}/>
+        </Stack.Navigator>
+
     );
-  }
+}
   

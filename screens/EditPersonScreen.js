@@ -135,8 +135,16 @@ return (
         <View style={Styles.fieldSet}>
           <TextParagraph style={Styles.legend}>Details</TextParagraph>
 
-          {/* Add Name, Phone here */}
+          
 
+          <View style={Styles.formRow}>
+            <TextLabel>Name:</TextLabel>
+            <TextInput value={name} onChangeText={setName} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Phone:</TextLabel>
+            <TextInput value={phone} onChangeText={setPhone} style={Styles.textInput} />
+          </View>
           <View style={Styles.formRow}>
             <TextLabel>Department:</TextLabel>
             {/* <TextInput value={departmentId} onChangeText={setDepartmentId} style={Styles.textInput} /> */}
@@ -153,8 +161,22 @@ return (
             <TextLabel>Street:</TextLabel>
             <TextInput value={street} onChangeText={setStreet} style={Styles.textInput} />
           </View>
-
-          {/* Add City, State, Zip, Country here */}
+          <View style={Styles.formRow}>
+            <TextLabel>City:</TextLabel>
+            <TextInput value={city} onChangeText={setCity} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>State:</TextLabel>
+            <TextInput value={state} onChangeText={setState} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Zip:</TextLabel>
+            <TextInput value={zip} onChangeText={setZip} style={Styles.textInput} />
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Country:</TextLabel>
+            <TextInput value={country} onChangeText={setCountry} style={Styles.textInput} />
+          </View>
         </View>
       </View>
 

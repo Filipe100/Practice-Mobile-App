@@ -50,7 +50,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="AddPerson"
         component={AddPersonScreen}
         options={{
-          title: 'Add Person',
+          title: 'Add Staff',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-person-add" />,
         }}
       />

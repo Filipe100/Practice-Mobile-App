@@ -46,7 +46,7 @@ export default function HomeScreen(props) {
         </View>
         <View style={Styles.homeButtonContainer}>
           <MyButton
-            text="View People"
+            text="View Staff"
             type="major"      // default*|major|minor
             size="large"      // small|medium*|large
             buttonStyle={Styles.homeButton}

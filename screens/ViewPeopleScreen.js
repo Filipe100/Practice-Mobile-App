@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, ScrollView } from 'react-native';
+import { Image, Text, View, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { infoMessage} from '../utils/flashMessage';
 import NetInfo from '@react-native-community/netinfo';
@@ -10,7 +10,7 @@ import { RoiDeletePerson, RoiGetPeople } from '../utils/RoiApi';
 import { PopupOk, PopupOkCancel } from "../utils/Popup";
 
 // Import styling and components
-import { TextParagraph, TextH1, TextH2, Text} from "../components/StyledText";
+import { TextParagraph, TextH1, TextH2} from "../components/StyledText";
 import Styles from "../styles/MainStyle";
 import { MyButton } from '../components/MyButton';
 import { ButtonContainer } from '../components/ButtonContainer';
@@ -111,48 +111,50 @@ export default function ViewPeopleScreen(props) {
    * Delete a person from the database
    * @param {Person} person The person to delete.
    */
-  function deletePerson(person) {
-    // Check if person should be deleted (confirm with user)
-    PopupOkCancel(
-      // Title and message
-      'Delete person?',
-      `Are you sure you want to delete ${person.name}`,
+  // function deletePerson(person) {
+  //   // Check if person should be deleted (confirm with user)
+  //   PopupOkCancel(
+  //     // Title and message
+  //     'Delete person?',
+  //     `Are you sure you want to delete ${person.name}`,
 
-      // 0K - delete the person
-      () => {
-        // Delete the person using the API
-        RoiDeletePerson(person.id)
-          .then((data) => {
-            // Show confirmation that the person has been deleted
-            PopupOk('Person deleted', `${person.name} has been  deleted`);
-            // Refresh the person list
-            refreshPersonList();
-          })
-          .catch((error) => {
-            // Display error
-            PopupOk('API Error', 'Could not delete person');
-          });
-        // console.log('Ok.. deleting person');
-      },
-      // Cancel do nothing
-      () => {
-        console.log('Cancel - no delete for you!');
-      }
-    );
-  }
+  //     // 0K - delete the person
+  //     () => {
+  //       // Delete the person using the API
+  //       RoiDeletePerson(person.id)
+  //         .then((data) => {
+  //           // Show confirmation that the person has been deleted
 
-  // Display flash message banner if offline
-  function displayConnectionMessage() {
-    console.log('displayConnectionMessage');
-    // Get network connection status
-    NetInfo.fetch().then((status) => {
-      // Check if not connected to the Internet
-      if (!status.isConnected) {
-        // Display the flash message
-        infoMessage('No internet connection', 'You will only see cached data until you \nhave an active internet connection again');
-      }
-    });
-  }
+  //           PopupOk('Person deleted', `${person.name} has been  deleted`);
+  //           // Refresh the person list
+  //           refreshPersonList();
+  //         })
+  //         .catch((error) => {
+  //           // Display error
+  //           PopupOk('API Error', 'Could not delete person');
+  //         });
+  //       // console.log('Ok.. deleting person');
+  //     },
+  //     // Cancel do nothing
+  //     () => {
+  //       console.log('Cancel - no delete for you!');
+        
+  //     }
+  //   );
+  // }
+
+  // // Display flash message banner if offline
+  // function displayConnectionMessage() {
+  //   console.log('displayConnectionMessage');
+  //   // Get network connection status
+  //   NetInfo.fetch().then((status) => {
+  //     // Check if not connected to the Internet
+  //     if (!status.isConnected) {
+  //       // Display the flash message
+  //       infoMessage('No internet connection', 'You will only see cached data until you \nhave an active internet connection again');
+  //     }
+  //   });
+  // }
 
   // Display all people data
   function displayPeople() {
@@ -164,31 +166,34 @@ export default function ViewPeopleScreen(props) {
       return (
         <View key={p.id} style={Styles.dataContainerHorizontal}>
           <View style={Styles.personListItemDetails}>
-          <TextParagraph>{p.name}</TextParagraph>
+          <TextParagraph style={Styles.label}>{p.name}</TextParagraph>
           <TextParagraph>{p.department?.name ?? '---'}</TextParagraph>
-          <TextParagraph>{p.phone}</TextParagraph>
+          <TextParagraph >{p.phone}</TextParagraph>
           </View>
           <ButtonContainer direction="column">
             <MyButton 
-            text="Info"
-            type="major"
-            size="small"
-            buttonStyle={Styles.personListItemButton}
-            textStyle={Styles.personListItemButtomText}
+              text="Info"
+              type="major"
+              size="small"
+              buttonStyle={Styles.personListItemButton}
+              textStyle={Styles.personListItemButtomText}
+              onPress={() => showViewPerson(p)}
             />
             <MyButton          
-            text="Edit"
-            type="default"
-            size="small" 
-            buttonStyle={Styles.personListItemButton}
-            textStyle={Styles.personListItemButtomText}
+              text="Edit"
+              type="default"
+              size="small" 
+              buttonStyle={Styles.personListItemButton}
+              textStyle={Styles.personListItemButtomText}
+              onPress={() => showEditPerson(p)}
             />
             <MyButton          
-            text="Delete"
-            type="minor"
-            size="small" 
-            buttonStyle={Styles.personListItemButton}
-            textStyle={Styles.personListItemButtomText}
+              text="Delete"
+              type="minor"
+              size="small" 
+              buttonStyle={Styles.personListItemButton}
+              textStyle={Styles.personListItemButtomText}
+              onPress={() => deletePerson(p)}
             />
           </ButtonContainer>
         </View>
@@ -207,7 +212,7 @@ export default function ViewPeopleScreen(props) {
       
       <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
           
-     
+      
 
         <View>
           {displayPeople()}

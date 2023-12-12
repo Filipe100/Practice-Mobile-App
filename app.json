@@ -36,6 +36,16 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "ConnectionStrings": {
+      "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=roi_database;Trusted_Connection=True;"
+    },
+    "Logging": {
+      "LogLevel": {
+        "Default": "Information",
+        "Microsoft.AspNetCore": "Warning"
+      }
+    },
+    "AllowedHosts": "*"
   }
 }

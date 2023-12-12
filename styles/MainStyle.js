@@ -162,9 +162,18 @@ export default StyleSheet.create({
   },
   headerBarTitle: {
     color: Colours.roiRed, // COLOUR: primary colour 1
-    textAlign: 'center',
+    fontSize: 30,
+    textAlign: 'right',
+    //textAlign: 'right',
   },
 
+  lightGrayLine: {
+    backgroundColor: 'white',  borderBottomColor: 'lightgray', borderBottomWidth: 1,
+  },
+
+  headerImage: {
+    Image: 'Mobile App\Practice-Mobile-App\assets\images\roi-logo.jpg',
+  },
   // FOOTER NAVIGATION
 
   navBar: {
@@ -215,7 +224,6 @@ export default StyleSheet.create({
   helpButtonContainer: {
     flexDirection: 'row', //column
     justifyContent: 'flex-start',
-    paddingVertical: 5,
   },
   helpButton: {
     marginHorizontal: 10,

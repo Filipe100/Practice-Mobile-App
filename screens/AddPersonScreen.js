@@ -113,7 +113,7 @@ export default function AddPersonScreen(props) {
 return (
   <SafeAreaView style={Styles.safeAreaView}>
     <ScrollView style={Styles.container} contentContainerStyle={Styles.contentContainer}>
-      <TextH1 style={{ marginTop: 0 }}>Add new person</TextH1>
+      <TextH1 style={{ marginTop: 0 }}>Add New Staff</TextH1>
 
       <View style={Styles.form}>
         <View style={Styles.fieldSet}>

@@ -8,7 +8,7 @@ import { RoiDeletePerson, RoiGetPerson } from '../utils/RoiApi';
 import { PopupOk, PopupOkCancel } from '../utils/Popup';
 
 // Import styling and components
-import { TextParagraph, TextH1, TextH2, TextLabel } from '../components/StyledText';
+import { TextParagraph, Text, TextH1, TextH2, TextLabel } from '../components/StyledText';
 import Styles from '../styles/MainStyle';
 import { MyButton } from '../components/MyButton';
 
@@ -35,7 +35,7 @@ export default function ViewPersonScreen(props) {
 
   // Set "effect" to retrieve and store data - only run on mount/unmount (loaded/unloaded)
   // "effectful" code is something that triggers a UI re-render
-  React.useEffect(refreshPerson, []);
+React.useEffect(refreshPerson, []);
 
   // Refresh the person data - call the API
   function refreshPerson() {
@@ -110,8 +110,17 @@ return (
       <View style={Styles.form}>
         <View style={Styles.fieldSet}>
           <TextParagraph style={Styles.legend}>Details</TextParagraph>
+          <View style={Styles.formRow}>
+            <TextLabel>Name:</TextLabel>
+            <TextParagraph>{person.name ? person.name : '---'}</TextParagraph>
 
-          {/* Add Name, Phone here */}
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Phone:</TextLabel>
+            <TextParagraph>{person.phone ? person.phone : '---'}</TextParagraph>
+
+          </View>
+
 
           <View style={Styles.formRow}>
             <TextLabel>Department:</TextLabel>
@@ -127,8 +136,23 @@ return (
             <TextLabel>Street:</TextLabel>
             <TextParagraph>{person.street}</TextParagraph>
           </View>
-
-          {/* Add City, State, Zip, Country here */}
+          <View style={Styles.formRow}>
+            <TextLabel>City:</TextLabel>
+            <TextParagraph>{person.city}</TextParagraph>
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>State:</TextLabel>
+            <TextParagraph>{person.state}</TextParagraph>
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Zip:</TextLabel>
+            <TextParagraph>{person.zip}</TextParagraph>
+          </View>
+          <View style={Styles.formRow}>
+            <TextLabel>Country:</TextLabel>
+            <TextParagraph>{person.country}</TextParagraph>
+          </View>
+ 
         </View>
       </View>
 
